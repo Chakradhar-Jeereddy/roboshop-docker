@@ -9,6 +9,7 @@ ENV mongo="true" \
 # containers can access with their names
 CMD [ "node","server.js" ]
 
+
 ## Run and rest
  # docker build --no-cache --progress=plain -t catalogue:v1 catalogue/.
  # docker run -d --name=catalogue f7efa194d4a4
