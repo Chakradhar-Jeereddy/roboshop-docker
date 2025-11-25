@@ -1,4 +1,5 @@
-FROM node:20.19.5-alpine3.22
+# FROM node:20.19.5-alpine3.22 # alpine image reduced image size to 70MB
+FROM node:20
 WORKDIR /app/server
 COPY *.js /app/server/
 COPY *.json /app/server/
