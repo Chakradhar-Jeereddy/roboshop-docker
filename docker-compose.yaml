@@ -2,21 +2,29 @@ services:
  mongodb:
   image: mongodb:v1
   container_name: mongodb
+  volumes:  #This option for persistent storage, used docker created volume
+    - mongodb:/data/db
  catalogue:
   image: catalogue:v1
   container_name: catalogue
  redis:
   image: redis:7
   container_name: redis
+  volumes: # volumes first created and then mounted
+    - redis:/data
  mysql:
   image: mysql:v1
   container_name: mysql
+  volumes:
+    - mysql:/var/lib/mysql
  rabbitmq:
   image: rabbitmq:3
   container_name: rabbitmq
   environment:
    RABBITMQ_DEFAULT_USER: roboshop
    RABBITMQ_DEFAULT_PASS: roboshop123
+  volumes:  #This is equal to -v rabbitmq:/var/lib/rabbitmq
+    - rabbitmq:/var/lib/rabbitmq
  user:
   image: users:v1
   container_name: user
@@ -59,6 +67,11 @@ networks:
     name: roboshop
     external: false # the network will be created by docker compose
              #true - Docker compose will not create if externally created.
+volumes:
+  mongodb:
+  redis:
+  mysql:
+  rabbitmq:
 # docker compose up
 # docker compose down
 #   Running 11/11
