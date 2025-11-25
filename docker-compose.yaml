@@ -45,6 +45,8 @@ services:
  frontend:
   image: frontend:v1
   container_name: frontend
+  ports:
+    - 80:80
   depends_on:
   - catalogue
   - cart
@@ -57,4 +59,31 @@ networks:
     name: roboshop
     external: false # the network will be created by docker compose
              #true - Docker compose will not create if externally created.
+# docker compose up
+# docker compose down
+#   Running 11/11
+#  ✔ Network roboshop     Created                                                                                                                         0.1s
+#  ✔ Container rabbitmq   Started                                                                                                                         1.4s
+#  ✔ Container catalogue  Started                                                                                                                         1.4s
+#  ✔ Container mongodb    Started                                                                                                                         1.4s
+#  ✔ Container mysql      Started                                                                                                                         1.4s
+#  ✔ Container redis      Started                                                                                                                         1.1s
+#  ✔ Container user       Started                                                                                                                         1.6s
+#  ✔ Container cart       Started                                                                                                                         1.8s
+#  ✔ Container shipping   Started                                                                                                                         2.9s
+#  ✔ Container payment    Started                                                                                                                         3.0s
+#  ✔ Container frontend   Started   
+
+#  [+] Running 11/11
+#  ✔ Container frontend   Removed                                                                                                                         0.1s
+#  ✔ Container payment    Removed                                                                                                                         0.1s
+#  ✔ Container shipping   Removed                                                                                                                         0.1s
+#  ✔ Container rabbitmq   Removed                                                                                                                         0.1s
+#  ✔ Container user       Removed                                                                                                                         0.1s
+#  ✔ Container cart       Removed                                                                                                                         0.1s
+#  ✔ Container mongodb    Removed                                                                                                                         0.1s
+#  ✔ Container mysql      Removed                                                                                                                         0.1s
+#  ✔ Container redis      Removed                                                                                                                         0.1s
+#  ✔ Container catalogue  Removed                                                                                                                         0.1s
+#  ✔ Network roboshop     Removed  
 
