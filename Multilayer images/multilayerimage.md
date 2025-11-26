@@ -1,4 +1,5 @@
 ## Image is created in layers
+***Test:*** DOCKER_BUILDKIT=0 docker build -t chakradhar05/catalogue:v1 .
 - Docker creates container for FROM instruction.
 - Runs first instruction in the container
 - Takes the image of the container and removes the container.
