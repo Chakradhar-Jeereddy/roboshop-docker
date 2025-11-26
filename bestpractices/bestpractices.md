@@ -6,6 +6,7 @@ Smaller images = faster pulls, less attack surface.
 FROM node:22-alpine
 
 ## Keep Dockerfile simple & multi-stage builds
+***Example:*** Bricks, if bottom layer is changed everything gets changes.
 FROM golang:1.22 as builder
 WORKDIR /app
 COPY . .
