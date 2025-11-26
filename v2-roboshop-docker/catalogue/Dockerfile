@@ -3,9 +3,7 @@ WORKDIR /opt/server
 COPY *.js /opt/server/
 COPY *.json /opt/server/
 RUN npm install
-ENV mongo="true" \
-    MONGO_URL="mongodb://mongodb:27017/catalogue"
-CMD [ "node","server.js" ]
+
 
 FROM node:20.19.5-alpine3.22
 # create a group and user
@@ -18,7 +16,7 @@ LABEL com.project="roboshop" \
       created_by="chakra"
 ENV mongo="true" \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
-COPY --from=build /opt/server /opt/server
+COPY --from=build --chown=roboshop:roboshop /opt/server /opt/server
 USER roboshop
 CMD [ "server.js" ]
 ENTRYPOINT [ "node" ]
