@@ -9,9 +9,9 @@ CMD [ "node","server.js" ]
 
 FROM node:20.19.5-alpine3.22
 # create a group and user
-RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 WORKDIR /opt/server
-RUN chown -R roboshop:roboshop /opt/server
+RUN addgroup -S roboshop && adduser -S roboshop -G roboshop && \
+    chown -R roboshop:roboshop /opt/server
 EXPOSE 8080
 LABEL com.project="roboshop" \
       components="catalogue" \
