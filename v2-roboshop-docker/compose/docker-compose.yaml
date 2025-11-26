@@ -10,7 +10,6 @@ services:
   image: chakradhar05/catalogue:v1
   container_name: catalogue
  redis:
-  build: ../../redis
   image: redis:7
   container_name: redis
   volumes: # volumes first created and then mounted
@@ -22,7 +21,6 @@ services:
   volumes:
     - mysql:/var/lib/mysql
  rabbitmq:
-  build: ../../rabbitmq
   image: rabbitmq:3
   container_name: rabbitmq
   environment:
