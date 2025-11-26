@@ -8,4 +8,3 @@ ENV MONGO="true" \
     MONGO_URL="mongodb://mongodb:27017/user"
 EXPOSE 8080
 CMD [ "node","server.js" ]
-
