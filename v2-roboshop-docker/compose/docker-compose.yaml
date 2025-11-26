@@ -1,28 +1,28 @@
 services:
  mongodb:
-  build: ../mongodb
+  build: ../../mongodb
   image: chakradhar05/mongodb:v1
   container_name: mongodb
   volumes:  #This option for persistent storage, used docker created volume
     - mongodb:/data/db
  catalogue:
-  build: ../catalogue
+  build: ../../catalogue
   image: chakradhar05/catalogue:v1
   container_name: catalogue
  redis:
-  build: ../redis
+  build: ../../redis
   image: redis:7
   container_name: redis
   volumes: # volumes first created and then mounted
     - redis:/data
  mysql:
-  build: ../mysql
+  build: ../../mysql
   image: chakradhar05/mysql:v1
   container_name: mysql
   volumes:
     - mysql:/var/lib/mysql
  rabbitmq:
-  build: ../rabbitmq
+  build: ../../rabbitmq
   image: rabbitmq:3
   container_name: rabbitmq
   environment:
@@ -31,28 +31,28 @@ services:
   volumes:  #This is equal to -v rabbitmq:/var/lib/rabbitmq
     - rabbitmq:/var/lib/rabbitmq
  user:
-  build: ../user
+  build: ../../user
   image: chakradhar05/users:v1
   container_name: user
   depends_on:
   - mysql
   - mongodb
  cart:
-  build: ../cart
+  build: ../../cart
   image: chakradhar05/cart:v1
   container_name: cart
   depends_on:
   - redis
   - catalogue
  shipping:
-  build: ../shipping
+  build: ../../shipping
   image: chakradhar05/shipping:v1
   container_name: shipping
   depends_on: 
   - mysql
   - cart
  payment:
-  build: ../payment
+  build: ../../payment
   image: chakradhar05/payment:v1
   container_name: payment
   depends_on:
@@ -60,7 +60,7 @@ services:
   - cart
   - user
  frontend:
-  build: ../frontend
+  build: ../../frontend
   image: chakradhar05/frontend:v1
   container_name: frontend
   ports:
