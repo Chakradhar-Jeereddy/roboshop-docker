@@ -76,7 +76,7 @@ networks:
     driver: bridge
     name: roboshop
     external: false # the network will be created by docker compose
-             #true - Docker compose will not create if externally created.
+                #true - Docker compose will not create if externally created.
 volumes:
   mongodb:
   redis:
