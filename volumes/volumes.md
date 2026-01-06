@@ -16,20 +16,26 @@
                             In the dockerhub images search for -v and use that to app the volume.
 
 ***Commands ->***
+```
 docker volume ls
 docker volume create nginx
 docker volume inspect nginx (/var/lib/docker/volumes/mongodb/_data)
 docker volume rm nginx
 docker run -d -p 80:80 -v nginx:/usr/share/nginx/html nginx
+```
 ***Test***
+```
 docker exec -it nginx bash; echo "hello" > hello.html
 cat /var/lib/docker/html/nginx
+```
 ***Importatn:*** Data remains even after container restart. 
-- Usage: docker volume COMMAND
-create -> create a volume
-Inspect -> Display detailed information on one or more volumes
-ls      -> List volumes
-rm     -> Remove one or more volumes
+
+Usage: docker volume COMMAND
+==
+- create -> create a volume
+- Inspect -> Display detailed information on one or more volumes
+- ls      -> List volumes
+- rm     -> Remove one or more volumes
 
 
 
