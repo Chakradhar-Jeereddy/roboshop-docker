@@ -3,7 +3,7 @@
 2) Run image/container
 
 for i in mongodb mysql catalogue user cart shipping payment frontend; do
-docker build -t $i:v1; cd ..; done
+docker build -t $i:v1 .; cd ..; done
 
 - Instread of using the loops, we can use docker compose.
 
